@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76.0mm" height="61.2mm" viewBox="0 0 760 612">
+  <!-- Written by make_claim_fig.py from results_data.json; do not hand-edit. -->
+  <style>
+    text { font-family: Helvetica, Arial, sans-serif; font-size: 20px; fill: #2D3136; }
+    .end { text-anchor: end; }
+    .mid { text-anchor: middle; }
+    .sm  { font-size: 18px; }
+    .mute{ fill: #6B7280; }
+    .b   { font-weight: bold; }
+  </style>
+  <circle cx="8" cy="24" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="22" y="30" class="b" fill="#1A7F37">twin</text>
+  <text x="74" y="30" class="mute">against</text>
+  <circle cx="160" cy="24" r="7" fill="#CF222E"/>
+  <text x="174" y="30" class="b" fill="#CF222E">compound</text>
+  <text x="282" y="30" class="mute">false success.</text>
+  <line x1="226" y1="106" x2="226" y2="546" stroke="#D6DBE2" stroke-width="1.6"/>
+  <text x="226" y="96" class="mid sm mute">40</text>
+  <line x1="366" y1="106" x2="366" y2="546" stroke="#D6DBE2" stroke-width="1.6"/>
+  <text x="366" y="96" class="mid sm mute">60</text>
+  <line x1="506" y1="106" x2="506" y2="546" stroke="#D6DBE2" stroke-width="1.6"/>
+  <text x="506" y="96" class="mid sm mute">80</text>
+  <line x1="646" y1="106" x2="646" y2="546" stroke="#D6DBE2" stroke-width="1.6"/>
+  <text x="646" y="96" class="mid sm mute">100</text>
+  <text x="760" y="96" class="end sm mute">change</text>
+  <text x="204" y="134" class="end">GPT-5.6 terra</text>
+  <line x1="263" y1="128" x2="450" y2="128" stroke="#2D3136" stroke-width="2.4"/>
+  <circle cx="450" cy="128" r="7.5" fill="#CF222E"/>
+  <circle cx="263" cy="128" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="134" class="end b">+26.7</text>
+  <text x="204" y="161" class="end">Gemini 3.8 Flash</text>
+  <line x1="303" y1="155" x2="552" y2="155" stroke="#2D3136" stroke-width="2.4"/>
+  <circle cx="552" cy="155" r="7.5" fill="#CF222E"/>
+  <circle cx="303" cy="155" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="161" class="end b">+35.5</text>
+  <text x="204" y="188" class="end">Claude Fable 5.1</text>
+  <line x1="379" y1="182" x2="517" y2="182" stroke="#2D3136" stroke-width="2.4"/>
+  <circle cx="517" cy="182" r="7.5" fill="#CF222E"/>
+  <circle cx="379" cy="182" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="188" class="end b">+19.7</text>
+  <text x="204" y="215" class="end">GPT-5.6 luna</text>
+  <line x1="398" y1="209" x2="532" y2="209" stroke="#2D3136" stroke-width="2.4"/>
+  <circle cx="532" cy="209" r="7.5" fill="#CF222E"/>
+  <circle cx="398" cy="209" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="215" class="end b">+19.2</text>
+  <text x="204" y="242" class="end">GPT-6 astra</text>
+  <line x1="413" y1="236" x2="485" y2="236" stroke="#2D3136" stroke-width="2.4"/>
+  <circle cx="485" cy="236" r="7.5" fill="#CF222E"/>
+  <circle cx="413" cy="236" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="242" class="end b">+10.4</text>
+  <text x="204" y="269" class="end">GPT-5.6 sol</text>
+  <line x1="445" y1="263" x2="575" y2="263" stroke="#2D3136" stroke-width="2.4"/>
+  <circle cx="575" cy="263" r="7.5" fill="#CF222E"/>
+  <circle cx="445" cy="263" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="269" class="end b">+18.4</text>
+  <text x="204" y="296" class="end mute">Claude Opus 5</text>
+  <line x1="542" y1="290" x2="579" y2="290" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="579" cy="290" r="7.5" fill="#CF222E"/>
+  <circle cx="542" cy="290" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="296" class="end mute">+5.2</text>
+  <text x="204" y="323" class="end mute">Qwen3 235B</text>
+  <line x1="579" y1="317" x2="558" y2="317" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="558" cy="317" r="7.5" fill="#CF222E"/>
+  <circle cx="579" cy="317" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="323" class="end mute">−3.1</text>
+  <text x="204" y="350" class="end mute">Claude Sonnet 5</text>
+  <line x1="606" y1="344" x2="606" y2="344" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="606" cy="344" r="7.5" fill="#CF222E"/>
+  <circle cx="606" cy="344" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="350" class="end mute">0.0</text>
+  <text x="204" y="377" class="end mute">DeepSeek V3.2</text>
+  <line x1="609" y1="371" x2="598" y2="371" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="598" cy="371" r="7.5" fill="#CF222E"/>
+  <circle cx="609" cy="371" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="377" class="end mute">−1.6</text>
+  <text x="204" y="404" class="end mute">Qwen3.5 35B-A3B</text>
+  <line x1="610" y1="398" x2="593" y2="398" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="593" cy="398" r="7.5" fill="#CF222E"/>
+  <circle cx="610" cy="398" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="404" class="end mute">−2.4</text>
+  <text x="204" y="431" class="end mute">MiniMax M2.5</text>
+  <line x1="611" y1="425" x2="596" y2="425" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="596" cy="425" r="7.5" fill="#CF222E"/>
+  <circle cx="611" cy="425" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="431" class="end mute">−2.1</text>
+  <text x="204" y="458" class="end mute">Kimi K2.5</text>
+  <line x1="615" y1="452" x2="594" y2="452" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="594" cy="452" r="7.5" fill="#CF222E"/>
+  <circle cx="615" cy="452" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="458" class="end mute">−2.9</text>
+  <text x="204" y="485" class="end mute">GLM-5</text>
+  <line x1="621" y1="479" x2="579" y2="479" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="579" cy="479" r="7.5" fill="#CF222E"/>
+  <circle cx="621" cy="479" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="485" class="end mute">−6.0</text>
+  <text x="204" y="512" class="end mute">Qwen3.5 122B-A10B</text>
+  <line x1="628" y1="506" x2="622" y2="506" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="622" cy="506" r="7.5" fill="#CF222E"/>
+  <circle cx="628" cy="506" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="512" class="end mute">−1.0</text>
+  <text x="204" y="539" class="end mute">Qwen3.5 27B</text>
+  <line x1="632" y1="533" x2="617" y2="533" stroke="#C3CBD6" stroke-width="1.6"/>
+  <circle cx="617" cy="533" r="7.5" fill="#CF222E"/>
+  <circle cx="632" cy="533" r="6" fill="#FFFFFF" stroke="#1A7F37" stroke-width="2.4"/>
+  <text x="760" y="539" class="end mute">−2.1</text>
+  <text x="436" y="588" class="mid sm mute">failed runs that claim success (%)</text>
+</svg>

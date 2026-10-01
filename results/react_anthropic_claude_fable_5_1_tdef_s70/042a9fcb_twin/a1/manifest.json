@@ -1,0 +1,69 @@
+{
+  "agent": {
+    "api_base": null,
+    "aws_region": "us-west-2",
+    "llm_retries": 5,
+    "llm_timeout_s": 600.0,
+    "max_output_length": null,
+    "max_steps": 70,
+    "max_tokens": 32768,
+    "model": "bedrock/us.anthropic.claude-fable-5-1",
+    "prompt_file": "appworld/experiments/prompts/react_code_agent/instructions.txt",
+    "prompt_sha1": "52dd55881eff",
+    "random_seed": 1,
+    "retry_budget_s": 3600.0,
+    "scaffold": "appworld_simplified_react_code_agent",
+    "temperature": null
+  },
+  "agent_id": "react_anthropic_claude_fable_5_1_tdef_s70",
+  "attempt": 1,
+  "commits": {
+    "appworld": "a072b7a",
+    "appworld_extend": "b7b3a4704-dirty"
+  },
+  "diagnosis": {
+    "calls_failed": 0,
+    "calls_ok": 15,
+    "content_from_reasoning": 0,
+    "context_overflow": false,
+    "empty_responses": 0,
+    "error_kinds": {},
+    "finish_reasons": {
+      "stop": 15
+    },
+    "hit_max_steps": false,
+    "max_completion_tokens": 434,
+    "max_prompt_chars": 37187,
+    "max_prompt_tokens": 14746,
+    "truncated": false,
+    "truncated_calls": []
+  },
+  "duration_s": 150.9,
+  "experiment": "react_anthropic_claude_fable_5_1_tdef_s70__a1",
+  "failure_suspect": "pass",
+  "finished_at": "2026-09-13T05:06:14Z",
+  "llm_calls": 15,
+  "model": "bedrock/us.anthropic.claude-fable-5-1",
+  "python": "3.11.15",
+  "scenario": {
+    "anchor": "042a9fc",
+    "instance": 2,
+    "variant": "twin"
+  },
+  "seed": 1,
+  "started_at": "2026-09-13T05:03:36Z",
+  "status": "ok",
+  "steps": 15,
+  "task_id": "042a9fcb_twin",
+  "tokens": {
+    "completion": 2394,
+    "errors": 0,
+    "prompt": 145455,
+    "retries": 0,
+    "total": 147849
+  },
+  "versions": {
+    "code": "0.2.0.dev0:a072b7a",
+    "data": "0.2.0"
+  }
+}

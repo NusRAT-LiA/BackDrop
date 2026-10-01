@@ -1,0 +1,39 @@
+{"method": "get", "url": "/api_docs/api_descriptions", "data": {"app_name": "phone"}}
+{"method": "get", "url": "/supervisor/account_passwords", "data": {}}
+{"method": "get", "url": "/api_docs/api_doc", "data": {"app_name": "phone", "api_name": "login"}}
+{"method": "post", "url": "/phone/auth/token", "data": {"username": "3517418245", "password": "@dS0W!K"}}
+{"method": "get", "url": "/api_docs/api_doc", "data": {"app_name": "phone", "api_name": "search_contacts"}}
+{"method": "get", "url": "/phone/contact_relationships", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno"}}
+{"method": "get", "url": "/phone/contacts", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "relationship": "brother", "page_index": 0, "page_limit": 20}}
+{"method": "get", "url": "/phone/contacts", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "relationship": "brother", "page_index": 1, "page_limit": 20}}
+{"method": "get", "url": "/phone/contacts", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "relationship": "sister", "page_index": 0, "page_limit": 20}}
+{"method": "get", "url": "/phone/contacts", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "relationship": "sister", "page_index": 1, "page_limit": 20}}
+{"method": "get", "url": "/phone/contacts", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "relationship": "sibling", "page_index": 0, "page_limit": 20}}
+{"method": "get", "url": "/phone/contacts", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "relationship": "sibling", "page_index": 1, "page_limit": 20}}
+{"method": "get", "url": "/api_docs/api_doc", "data": {"app_name": "phone", "api_name": "search_text_messages"}}
+{"method": "get", "url": "/phone/messages/text", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "phone_number": "2233697879", "page_index": 0, "page_limit": 20}}
+{"method": "get", "url": "/phone/messages/text", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "phone_number": "2233697879", "page_index": 1, "page_limit": 20}}
+{"method": "get", "url": "/phone/messages/text", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "phone_number": "9503658964", "page_index": 0, "page_limit": 20}}
+{"method": "get", "url": "/phone/messages/text", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "phone_number": "9503658964", "page_index": 1, "page_limit": 20}}
+{"method": "get", "url": "/phone/messages/text", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "phone_number": "9312015677", "page_index": 0, "page_limit": 20}}
+{"method": "get", "url": "/phone/messages/text", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwaG9uZSszNTE3NDE4MjQ1IiwiZXhwIjoxNjg0NDEyMDc1fQ.aaIQEhekkzwZFzQhjmIzvkbZagdAe73ip8Gne4cKpno", "phone_number": "9312015677", "page_index": 1, "page_limit": 20}}
+{"method": "post", "url": "/spotify/auth/token", "data": {"username": "cheweber@gmail.com", "password": "YJh}7_a"}}
+{"method": "get", "url": "/api_docs/api_doc", "data": {"app_name": "spotify", "api_name": "show_playlist"}}
+{"method": "get", "url": "/spotify/playlists/654", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "get", "url": "/api_docs/api_doc", "data": {"app_name": "spotify", "api_name": "search_songs"}}
+{"method": "get", "url": "/spotify/songs", "data": {"query": "Shadows in the Twilight", "page_limit": 20}}
+{"method": "get", "url": "/spotify/songs", "data": {"query": "Dancing on the Precipice of Love", "page_limit": 20}}
+{"method": "get", "url": "/spotify/songs", "data": {"query": "Midnight Whispers", "page_limit": 20}}
+{"method": "get", "url": "/spotify/songs", "data": {"query": "Lost in the Symphony of Time", "page_limit": 20}}
+{"method": "get", "url": "/api_docs/api_doc", "data": {"app_name": "spotify", "api_name": "add_song_to_playlist"}}
+{"method": "get", "url": "/api_docs/api_doc", "data": {"app_name": "spotify", "api_name": "remove_song_from_playlist"}}
+{"method": "delete", "url": "/spotify/playlists/654/songs/96", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "delete", "url": "/spotify/playlists/654/songs/115", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "delete", "url": "/spotify/playlists/654/songs/215", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "delete", "url": "/spotify/playlists/654/songs/276", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "post", "url": "/spotify/playlists/654/songs/225", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "post", "url": "/spotify/playlists/654/songs/148", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "post", "url": "/spotify/playlists/654/songs/226", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "post", "url": "/spotify/playlists/654/songs/316", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "get", "url": "/spotify/playlists/654", "data": {"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzcG90aWZ5K2NoZXdlYmVyQGdtYWlsLmNvbSIsImV4cCI6MTY4NDQxMjk2NX0.N47gpVoosDofqurnNX8I2FsuIwhn9iA6Bpi2jaFzlVA"}}
+{"method": "post", "url": "/supervisor/message", "data": {}}

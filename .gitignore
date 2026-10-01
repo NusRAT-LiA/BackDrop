@@ -1,0 +1,36 @@
+/.venv
+/.tmp
+# left to uv, so an installer is free to pick up a newer litellm
+uv.lock
+
+# Local API keys — never commit. (.env.example is the committed placeholder reference.)
+.env
+
+# macOS junk
+.DS_Store
+
+# Python bytecode caches, wherever they appear (task graders compile too)
+__pycache__/
+*.egg-info/
+
+# AppWorld's own data, fetched by setup.sh
+/data
+/appworld/data
+
+# The tasks and generators live in benchmark_ext/data/tasks.bundle and are written here by
+#   python -m benchmark_ext.bundle unpack
+/benchmark_ext/data/tasks/
+/benchmark_ext/generate/tasks/task_generators/*
+!/benchmark_ext/generate/tasks/task_generators/base.py
+
+# Runs. One directory per agent, task and attempt; regenerable by re-running the agent, so ignored.
+# The exception is the one example run, kept so a verdict can be read before spending anything. Spelled with
+# /results/* rather than /results/, because git will not descend into an excluded directory to find a negation.
+/results/*
+!/results/react_anthropic_claude_fable_5_1_tdef_s70/
+/results/react_anthropic_claude_fable_5_1_tdef_s70/*
+!/results/react_anthropic_claude_fable_5_1_tdef_s70/agent.json
+!/results/react_anthropic_claude_fable_5_1_tdef_s70/042a9fcb_twin/
+
+# decrypt.py output: decrypted AppWorld runs in plain text, never commit
+/backdrop_runs/

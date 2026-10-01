@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backdrop Leaderboard</title>
+<meta name="description" content="The 16 models ranked by pass rate in the twin with no hazard and in the compound with four, with the cost of each hazard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#F6F4EF;--surface:#FFFFFF;--surface-2:#FBFAF7;
+  --ink:#0B2A33;--ink-2:#34505A;--ink-3:#566C74;--ink-4:#9AA8AD;
+  --rule:#E4E0D8;--rule-2:#D2CCC1;--code:#EFECE5;--hdr:#A8DEE6;
+  --pass:#1A7F37;--pass-bg:#E3F4E8;--fail:#CF222E;--fail-bg:#FCE8EA;
+  --hz-a:#584A9D;--hz-a-bg:#F0EFFF;
+  --hz-i:#2F5E9E;--hz-i-bg:#E0ECFD;
+  --hz-b:#836700;--hz-b-bg:#FFF6CC;--hz-b-fill:#F7C600;
+  --hz-f:#257A6E;--hz-f-bg:#DCFAF3;
+  --md-c:#8E4210;--md-c-bg:#FFE0CB;
+  --md-o:#5A6B0F;--md-o-bg:#EFF9D4;
+  --md-ab:#B03669;--md-ab-bg:#FDE0EC;
+  --focus:#0B2A33;--focus-bg:#E2EBEE;
+  --tip-bg:#0B2A33;--tip-ink:#F6F4EF;
+  --shadow:0 1px 2px rgba(10,50,53,.06),0 8px 24px rgba(10,50,53,.08);
+  --serif:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --deep:#0B2A33;--deep-ink:#F6F4EF;--deep-ink-2:#C5D3D8;--accent:#F6F4EF;--accent-ink:#0B2A33;--accent-label:#A3B6BD;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+.k-a{--m:var(--hz-a);--m-bg:var(--hz-a-bg)}
+.k-i{--m:var(--hz-i);--m-bg:var(--hz-i-bg)}
+.k-b{--m:var(--hz-b);--m-bg:var(--hz-b-bg)}
+.k-f{--m:var(--hz-f);--m-bg:var(--hz-f-bg)}
+.k-c{--m:var(--md-c);--m-bg:var(--md-c-bg)}
+.k-o{--m:var(--md-o);--m-bg:var(--md-o-bg)}
+.k-ab{--m:var(--md-ab);--m-bg:var(--md-ab-bg)}
+.k-t{--m:var(--ink-2);--m-bg:#ECE9E2}
+.k-x{--m:var(--ink);--m-bg:#E6E2DA}
+.k-a,.k-i,.k-f,.k-c,.k-o,.k-ab,.k-t,.k-x{--m-fill:var(--m)}
+.k-b{--m-fill:var(--hz-b-fill)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;background:var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+code,pre{font-family:var(--mono)}
+code{font-size:.92em}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:10px;z-index:60;background:var(--surface);padding:6px 10px;border-radius:2px}
+.bar{background:var(--deep)}
+.bar :focus-visible,.hero :focus-visible,.foot :focus-visible{outline-color:var(--deep-ink)}
+.bar-in{display:flex;align-items:center;gap:28px;min-height:56px}
+.mark{font-family:var(--sans);font-weight:600;font-size:21px;letter-spacing:-.01em;line-height:1;flex:none;color:var(--deep-ink);text-decoration:none}
+.nav{display:flex;gap:2px;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:inline-flex;align-items:center;padding:7px 11px;border-radius:2px;font-size:14px;white-space:nowrap;text-decoration:none;color:var(--deep-ink-2)}
+.nav a:hover{color:var(--deep-ink);background:rgba(250,242,233,.1)}
+.nav a[aria-current="page"]{background:var(--accent);color:var(--accent-ink);font-weight:600}
+@media (max-width:720px){.bar-in{gap:12px}}
+.hero{padding-top:44px;padding-bottom:40px;margin-bottom:28px;border-image:linear-gradient(var(--deep) 0 0) fill 0//0 100vmax;color:var(--deep-ink)}
+.hero h1{color:var(--deep-ink)}
+.hero .deck,.hero .oneline{color:var(--deep-ink-2)}
+.hero .deck b,.hero .oneline b{color:var(--deep-ink)}
+.hero .eyebrow{color:var(--accent-label)}
+.eyebrow{margin:0 0 12px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.2vw,46px);line-height:1.08;letter-spacing:-.025em;margin:0 0 16px;text-wrap:balance}
+.deck{font-size:18px;line-height:1.55;color:var(--ink-2);margin:0 0 24px;text-wrap:pretty}
+.sec{padding-top:40px}
+h2{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-.015em;margin:0 0 6px;text-wrap:balance}
+.lede{color:var(--ink-2);margin:0 0 18px;text-wrap:pretty}
+.btn{font:500 13px/1 var(--sans);padding:8px 12px;border-radius:2px;border:1px solid var(--rule-2);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--ink-3)}
+.btn.sm{padding:6px 10px;font-size:12.5px}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:2px;background:var(--surface);overflow:hidden}
+.seg button{border:0;background:none;padding:8px 12px;font:500 13px/1 var(--sans);color:var(--ink-2);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.seg button+button{border-left:1px solid var(--rule-2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.seg button i{width:9px;height:9px;border-radius:1px;background:var(--m-fill);display:block}
+.field{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink-3)}
+.field select,.field input{font-size:13.5px;padding:7px 9px;border:1px solid var(--rule-2);border-radius:2px;background:var(--surface);color:var(--ink);min-width:0}
+.tag{display:inline-flex;align-items:center;font:500 11px/1 var(--sans);padding:4px 7px;border-radius:2px;background:var(--m-bg);color:var(--m);white-space:nowrap}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.tip{position:fixed;z-index:40;max-width:340px;padding:8px 10px;border-radius:2px;background:var(--tip-bg);color:var(--tip-ink);font:12px/1.5 var(--sans);pointer-events:none;box-shadow:var(--shadow)}
+.tip b{font-weight:600}
+.num{font-variant-numeric:tabular-nums}
+.foot{padding:32px 32px 40px;margin-top:40px;margin-bottom:28px;background:var(--deep);color:var(--deep-ink-2);font-size:13.5px}
+.foot a{color:var(--deep-ink)}
+@media (max-width:640px){.foot{padding:24px 20px 28px}}
+.foot p{margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.tools{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin:0 0 14px}
+.tools .lbl{font-size:12px;color:var(--ink-3);margin-right:8px}
+.tbox{background:var(--surface);border:1px solid var(--rule);border-radius:2px;overflow-x:auto}
+table.lb{border-collapse:collapse;width:100%;min-width:1000px;font-size:13.5px}
+.lb th,.lb td{padding:8px 9px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--rule)}
+.lb thead th{position:sticky;top:0;background:var(--surface);z-index:2;font:600 12px/1.25 var(--sans);color:var(--ink-2);vertical-align:bottom;border-bottom:1px solid var(--rule-2)}
+.lb thead tr.grp th{font-weight:600;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;border-bottom:0;text-align:center;padding-bottom:0}
+.lb thead tr.grp th span{display:block;border-bottom:1px solid var(--rule-2);padding-bottom:5px}
+.lb thead th button{border:0;background:none;padding:0;font:inherit;color:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.lb thead th button:hover{color:var(--ink)}
+.lb thead th[aria-sort] button{color:var(--ink)}
+.lb thead th[aria-sort="descending"] button::after{content:"↓";font-size:11px}
+.lb thead th[aria-sort="ascending"] button::after{content:"↑";font-size:11px}
+.lb thead th i{width:8px;height:8px;border-radius:1px;background:var(--m-fill);display:inline-block}
+.lb th.l,.lb td.l{text-align:left}
+.lb tbody tr{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.lb tbody tr:hover td{background-image:linear-gradient(rgba(27,32,39,.035),rgba(27,32,39,.035))}
+.lb tbody tr:last-child td{border-bottom:0}
+.lb td{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.lb td.model{font-family:var(--sans);font-size:14px;font-weight:500}
+.lb td.model span.n{display:inline-flex;align-items:center;gap:8px}
+.lb td.rank{font-weight:600;color:var(--ink)}
+.lb td.delta{font-family:var(--sans);font-size:12px}
+.up{color:var(--pass)}
+.dn{color:var(--fail)}
+.flat{color:var(--ink-4)}
+.lb td b{font-weight:700}
+.lb td.dim{color:var(--ink-4)}
+.lb tfoot td{font-weight:600;border-top:1px solid var(--rule-2);border-bottom:0;background:var(--surface-2)}
+#main{padding-bottom:64px}
+/* Glass finish: frosted blocks over a faint dot grid. Added after each page's own rules. */
+:root{--glass-hi:rgba(255,255,255,0.42);--glass-lo:rgba(255,255,255,0.16);--glass-soft:rgba(255,255,255,.42)}
+html{background:var(--ground)}
+body{background:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 1px 1px, rgba(11,42,51,.13) 1px, transparent 1.4px) 0 0/22px 22px,
+  radial-gradient(46vw 44vh at 4% 34%, #EAF2F4 0, rgba(234,242,244,0) 72%),
+  radial-gradient(42vw 52vh at 98% 60%, #EDF3EE 0, rgba(237,243,238,0) 72%),
+  radial-gradient(50vw 40vh at 52% 104%, #FAF3E7 0, rgba(250,243,231,0) 70%)}
+.card,.hb,.lens-card,.board,.tbox,.item,.linkcard,.vcard,.hcard,.mapbox,.happen,.step{
+  background:linear-gradient(145deg,var(--glass-hi),var(--glass-lo));
+  -webkit-backdrop-filter:blur(4px) saturate(140%);backdrop-filter:blur(4px) saturate(140%);
+  border-color:rgba(255,255,255,.9);
+  box-shadow:0 0 0 1px rgba(11,42,51,.07),inset 0 1px 0 rgba(255,255,255,.95),0 12px 32px rgba(11,42,51,.07)}
+.hzl li,.gwrap,.fbody,.diff,.ph,.obs-ph,.mgrid thead th,.lb tfoot td{background:var(--glass-soft)}
+.gtop,.ghead,.lb thead th{background:rgba(246,244,239,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.hero .task,.hero .toc a{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:var(--deep-ink);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+.hero .toc a:hover{border-color:rgba(255,255,255,.4)}
+.hero .task .label,.hero .task .deleg{color:var(--deep-ink-2)}
+.hero .toc b{color:var(--accent-label)}
+
+.pview{display:none}
+</style>
+<link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a><header class="bar"><div class="wrap bar-in"><a class="mark" href="index.html">Backdrop</a><nav class="nav" aria-label="Site"><a href="index.html">Home</a><a href="two-worlds.html">The Worlds</a><a href="explorer.html">Explorer</a><a href="leaderboard.html" aria-current="page">Leaderboard</a><a href="findings.html">Findings</a></nav></div></header>
+<main id="main">
+  <section class="hero wrap">
+    <h1>Backdrop Leaderboard</h1>
+    <p class="deck">A pass means the task succeeded, as judged by its stock evaluator. <em>Gap</em> is twin minus compound in points, <em>cost</em> the share of twin passes a hazard removes when it is planted alone, <em>keeps</em> the share of twin solutions also solved as a compound, <em>p@4</em> the compound pass rate over four attempts, and <em>false success</em> the share of failed runs that claim success.</p>
+  </section>
+  <section class="wrap">
+    <div class="tools">
+      <div><span class="lbl">Rank by</span><span class="seg" id="rank"><button type="button" data-v="twin" aria-pressed="true">Twin</button><button type="button" data-v="compound" aria-pressed="false">Compound</button></span></div>
+      <div><span class="lbl">Hazard columns</span><span class="seg" id="hmode"><button type="button" data-v="pass" aria-pressed="true">Pass rate</button><button type="button" data-v="cost" aria-pressed="false">Cost</button></span></div>
+      <div class="pview"><span class="lbl">Show</span><span class="seg" id="pview"><button type="button" data-v="pass" aria-pressed="true">Pass rates</button><button type="button" data-v="cost" aria-pressed="false">Hazard cost</button><button type="button" data-v="loss" aria-pressed="false">Loss and recovery</button><button type="button" data-v="fs" aria-pressed="false">False success</button></span></div>
+    </div>
+    <div class="tbox"><table class="lb" id="lb"></table></div>
+  </section>
+</main>
+<script type="application/json" id="data">{"rows":[{"name":"Claude Fable 5.1","color":"D97757","provider":"Anthropic","attempts":1,"twin":96.60194174757281,"compound":55.98705501618123,"gap":40.61488673139158,"abl":{"authority":45.60530679933665,"injection":93.65853658536585,"boundary":53.170731707317074,"fault":96.22331691297208},"cost":{"authority":52.991452991452995,"injection":3.0303030303030276,"boundary":44.94949494949494,"fault":0.3401360544217691},"keeps":57.28643216080402,"pass4":null,"fs_twin":61.904761904761905,"fs_comp":81.61764705882354,"fs_rise":20},{"name":"GPT-5.6 sol","color":"10A37F","provider":"OpenAI","attempts":4,"twin":92.51618122977347,"compound":29.490291262135923,"gap":63.02588996763754,"abl":{"authority":32.79436152570481,"injection":80.16260162601625,"boundary":52.886178861788615,"fault":79.10509031198687},"cost":{"authority":64.71900089206066,"injection":13.356766256590513,"boundary":42.88849868305532,"fault":14.393602843180808},"keeps":45.45454545454545,"pass4":44.01294498381877,"fs_twin":71.35135135135135,"fs_comp":89.7877223178428,"fs_rise":19},{"name":"Gemini 3.8 Flash","color":"4285F4","provider":"Google","attempts":1,"twin":92.3948220064725,"compound":27.508090614886733,"gap":64.88673139158576,"abl":{"authority":24.875621890547265,"injection":85.36585365853658,"boundary":61.13821138211382,"fault":76.68308702791461},"cost":{"authority":73.2620320855615,"injection":7.570422535211274,"boundary":34.035087719298254,"fault":17.19858156028369},"keeps":28.19614711033275,"pass4":null,"fs_twin":51.06382978723404,"fs_comp":86.60714285714286,"fs_rise":36},{"name":"Claude Opus 5","color":"D97757","provider":"Anthropic","attempts":4,"twin":92.35436893203884,"compound":45.79288025889968,"gap":46.56148867313916,"abl":{"authority":35.40630182421227,"injection":87.84552845528455,"boundary":46.91056910569106,"fault":88.17733990147784},"cost":{"authority":61.7897091722595,"injection":4.843681197710259,"boundary":49.185380889475994,"fault":4.405874499332441},"keeps":62.541806020066886,"pass4":61.16504854368932,"fs_twin":85.18518518518519,"fs_comp":90.3731343283582,"fs_rise":5},{"name":"GPT-6 astra","color":"10A37F","provider":"OpenAI","attempts":1,"twin":90.77669902912622,"compound":72.49190938511327,"gap":18.284789644012946,"abl":{"authority":66.66666666666667,"injection":90.73170731707317,"boundary":65.20325203252033,"fault":90.9688013136289},"cost":{"authority":27.041742286751358,"injection":0.0,"boundary":28.392857142857142,"fault":-0.36231884057971175},"keeps":78.78787878787878,"pass4":null,"fs_twin":66.66666666666667,"fs_comp":77.05882352941177,"fs_rise":10},{"name":"Claude Sonnet 5","color":"D97757","provider":"Anthropic","attempts":4,"twin":83.05016181229773,"compound":33.737864077669904,"gap":49.312297734627826,"abl":{"authority":40.21558872305141,"injection":76.54471544715447,"boundary":72.1951219512195,"fault":64.36781609195403},"cost":{"authority":51.64506480558325,"injection":7.741303282704559,"boundary":12.983831455169048,"fault":22.260783341596422},"keeps":51.91637630662021,"pass4":48.86731391585761,"fs_twin":94.27207637231504,"fs_comp":94.26129426129427,"fs_rise":0},{"name":"GPT-5.6 terra","color":"10A37F","provider":"OpenAI","attempts":4,"twin":81.79611650485437,"compound":31.75566343042071,"gap":50.04045307443366,"abl":{"authority":40.38142620232173,"injection":63.65853658536585,"boundary":65.32520325203252,"fault":73.89162561576354},"cost":{"authority":50.73343449671219,"injection":22.089552238805965,"boundary":20.168902136115253,"fault":9.365558912386717},"keeps":50.69444444444444,"pass4":47.73462783171521,"fs_twin":45.333333333333336,"fs_comp":72.02133965619443,"fs_rise":27},{"name":"GPT-5.6 luna","color":"10A37F","provider":"OpenAI","attempts":4,"twin":79.57119741100324,"compound":38.066343042071196,"gap":41.504854368932044,"abl":{"authority":45.356550580431175,"injection":72.1951219512195,"boundary":73.17073170731707,"fault":68.30870279146141},"cost":{"authority":43.52090862157977,"injection":9.156010230179035,"boundary":8.443540183112919,"fault":13.827032625582603},"keeps":61.510791366906474,"pass4":56.79611650485437,"fs_twin":64.55445544554455,"fs_comp":83.736120182887,"fs_rise":19},{"name":"GLM-5","color":"0E7C86","provider":"Zhipu","attempts":4,"twin":65.61488673139158,"compound":23.42233009708738,"gap":42.1925566343042,"abl":{"authority":40.091210613598676,"injection":54.390243902439025,"boundary":56.829268292682926,"fault":45.27914614121511},"cost":{"authority":39.067422810333966,"injection":16.89440993788821,"boundary":13.59703337453646,"fault":30.628930817610055},"keeps":47.134935304990755,"pass4":43.20388349514563,"fs_twin":96.47058823529412,"fs_comp":90.43845747490755,"fs_rise":-6},{"name":"Kimi K2.5","color":"2B2B2B","provider":"Moonshot","attempts":4,"twin":59.3042071197411,"compound":23.01779935275081,"gap":36.286407766990294,"abl":{"authority":36.44278606965174,"injection":50.8130081300813,"boundary":52.72357723577236,"fault":39.90147783251231},"cost":{"authority":38.66015352407537,"injection":14.089347079037806,"boundary":11.042524005486964,"fault":32.264808362369344},"keeps":45.981308411214954,"pass4":42.07119741100323,"fs_twin":95.52683896620279,"fs_comp":92.59064634787178,"fs_rise":-3},{"name":"DeepSeek V3.2","color":"4D6BFE","provider":"DeepSeek","attempts":4,"twin":58.616504854368934,"compound":22.33009708737864,"gap":36.286407766990294,"abl":{"authority":39.38640132669983,"injection":52.642276422764226,"boundary":52.235772357723576,"fault":38.25944170771757},"cost":{"authority":32.767162066525124,"injection":9.944367176634216,"boundary":10.639777468706535,"fault":34.227240649258995},"keeps":48.78504672897196,"pass4":44.82200647249191,"fs_twin":94.72140762463343,"fs_comp":93.125,"fs_rise":-2},{"name":"MiniMax M2.5","color":"E4572E","provider":"MiniMax","attempts":4,"twin":50.24271844660194,"compound":20.428802588996763,"gap":29.813915857605178,"abl":{"authority":31.42620232172471,"injection":44.91869918699187,"boundary":45.853658536585364,"fault":34.523809523809526},"cost":{"authority":37.35537190082645,"injection":10.162601626016254,"boundary":9.03225806451613,"fault":30.895645028759244},"keeps":46.017699115044245,"pass4":38.18770226537217,"fs_twin":94.95934959349593,"fs_comp":92.83172343670564,"fs_rise":-2},{"name":"Qwen3 235B","color":"7B4DD8","provider":"Qwen","attempts":4,"twin":48.907766990291265,"compound":18.648867313915858,"gap":30.258899676375407,"abl":{"authority":32.37976782752902,"injection":42.113821138211385,"boundary":43.983739837398375,"fault":33.62068965517241},"cost":{"authority":33.98140321217243,"injection":13.522537562604331,"boundary":10.207468879668047,"fault":30.47538200339559},"keeps":46.241457858769934,"pass4":36.73139158576052,"fs_twin":90.49881235154395,"fs_comp":87.41919443063152,"fs_rise":-3},{"name":"Qwen3.5 27B","color":"7B4DD8","provider":"Qwen","attempts":4,"twin":47.97734627831715,"compound":18.851132686084142,"gap":29.126213592233007,"abl":{"authority":32.21393034825871,"injection":42.886178861788615,"boundary":45.0,"fault":28.858784893267654},"cost":{"authority":32.72727272727273,"injection":10.136286201022159,"boundary":6.106870229007644,"fault":38.97569444444444},"keeps":43.40044742729307,"pass4":34.78964401294498,"fs_twin":98.05598755832037,"fs_comp":95.91226321036889,"fs_rise":-2},{"name":"Qwen3.5 35B-A3B","color":"7B4DD8","provider":"Qwen","attempts":4,"twin":39.846278317152105,"compound":25.485436893203882,"gap":14.360841423948223,"abl":{"authority":34.660033167495854,"injection":36.6260162601626,"boundary":38.94308943089431,"fault":27.586206896551722},"cost":{"authority":13.00728407908428,"injection":7.589743589743591,"boundary":2.0449897750511203,"fault":29.707112970711304},"keeps":60.57692307692308,"pass4":47.41100323624595,"fs_twin":94.82178883658372,"fs_comp":92.39956568946796,"fs_rise":-3},{"name":"Qwen3.5 122B-A10B","color":"7B4DD8","provider":"Qwen","attempts":4,"twin":33.05016181229774,"compound":14.239482200647249,"gap":18.81067961165049,"abl":{"authority":25.912106135986733,"injection":30.934959349593495,"boundary":31.6260162601626,"fault":19.663382594417076},"cost":{"authority":22.26368159203981,"injection":5.816831683168311,"boundary":4.422604422604415,"fault":39.74842767295598},"keeps":44.88778054862843,"pass4":32.52427184466019,"fs_twin":97.46223564954683,"fs_comp":96.50943396226415,"fs_rise":0}],"means":{"twin":69.53883495145631,"compound":31.328377831715212,"gap":38.2104571197411,"abl":{"authority":37.73839137645108,"injection":62.84298780487805,"boundary":53.57469512195122,"fault":56.58866995073892},"cost":{"authority":42.220818579018214,"injection":9.746510226726219,"boundary":19.258819961134762,"fault":21.772030809106855},"keeps":51.213376257714714,"pass4":44.48593477719691,"fs_twin":81.42804180387583,"fs_comp":88.54309429651077,"fs_rise":7.1875}}</script>
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"]/g, ch => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[ch]);
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const D = JSON.parse($('#data').textContent);
+const R = D.rows;
+const HAZ = [['authority', '+Authority', 'a', '#9C94E4'], ['injection', '+Injection', 'i', '#7DAAE8'], ['boundary', '+Boundary', 'b', '#F7C600'], ['fault', '+Fault', 'f', '#64D8C1']];
+const DROP = '#E07C72', RISE = '#E0574A';
+function mix(hex, t) {
+  t = Math.max(0, Math.min(1, t));
+  const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16));
+  return `rgba(${c.join(',')},${t.toFixed(3)})`;  // see-through at low values; same as the white blend on white
+}
+const rankOf = key => { const o = [...R].sort((a, b) => b[key] - a[key]); return Object.fromEntries(o.map((r, i) => [r.name, i + 1])); };
+const RANK = {twin: rankOf('twin'), compound: rankOf('compound')};
+const st = {rank: 'twin', hmode: 'pass', view: 'pass', sortKey: null, dir: -1};
+
+const COLS = [
+  {id: 'rank', label: '#', cls: 'rank', val: r => RANK[st.rank][r.name], asc: true},
+  {id: 'delta', label: 'Move', cls: 'delta', val: r => RANK.twin[r.name] - RANK.compound[r.name]},
+  {id: 'model', label: 'Model', cls: 'model l', val: r => r.name, text: true},
+  {id: 'attempts', label: 'Attempts', val: r => r.attempts},
+  {id: 'twin', label: 'Twin', val: r => r.twin, grp: 'pass'},
+  ...HAZ.map(([h, lab, k]) => ({id: h, label: lab, k, grp: 'pass', val: r => st.hmode === 'pass' ? r.abl[h] : r.cost[h]})),
+  {id: 'compound', label: 'Compound', val: r => r.compound, grp: 'pass'},
+  {id: 'gap', label: 'Gap', val: r => r.gap, grp: 'loss'},
+  {id: 'keeps', label: 'Keeps', val: r => r.keeps, grp: 'loss'},
+  {id: 'pass4', label: 'Pass@4', val: r => r.pass4 == null ? -1 : r.pass4, grp: 'loss'},
+  {id: 'fs_twin', label: 'Twin', val: r => r.fs_twin, grp: 'fs'},
+  {id: 'fs_comp', label: 'Compound', val: r => r.fs_comp, grp: 'fs'},
+  {id: 'fs_rise', label: 'Rise', val: r => r.fs_rise, grp: 'fs'}
+];
+const f1 = v => v.toFixed(1), f0 = v => v.toFixed(0);
+
+function cellHTML(c, r) {
+  switch (c.id) {
+    case 'rank': return `<td class="rank">${RANK[st.rank][r.name]}</td>`;
+    case 'delta': {
+      if (st.rank !== 'compound') return '<td class="delta flat" aria-label="rank in the twin">·</td>';
+      const d = RANK.twin[r.name] - RANK.compound[r.name];
+      return d > 0 ? `<td class="delta up" title="up ${d} from the twin ranking">▲ ${d}</td>` : d < 0 ? `<td class="delta dn" title="down ${-d} from the twin ranking">▼ ${-d}</td>` : '<td class="delta flat" title="same rank as in the twin">=</td>';
+    }
+    case 'model': return `<td class="model l"><span class="n"><span class="dot" style="--c:#${r.color}"></span>${esc(r.name)}</span></td>`;
+    case 'attempts': return `<td>${r.attempts}</td>`;
+    case 'twin': return `<td>${f1(r.twin)}</td>`;
+    case 'compound': return `<td>${f1(r.compound)}</td>`;
+    case 'gap': return `<td style="background:${mix(DROP, r.gap / 70)}">${f1(r.gap)}</td>`;
+    case 'keeps': return `<td>${f0(r.keeps)}</td>`;
+    case 'pass4': return r.pass4 == null ? '<td class="dim" title="ran one attempt">—</td>' : `<td>${r.pass4 < r.twin ? '<b>' + f1(r.pass4) + '</b>' : f1(r.pass4)}</td>`;
+    case 'fs_twin': return `<td>${f0(r.fs_twin)}</td>`;
+    case 'fs_comp': return `<td>${r.fs_rise >= 10 ? '<b>' + f0(r.fs_comp) + '</b>' : f0(r.fs_comp)}</td>`;
+    case 'fs_rise': return `<td style="background:${mix(RISE, r.fs_rise / 40)}">${r.fs_rise < 0 ? '−' + f0(-r.fs_rise) : f0(r.fs_rise)}</td>`;
+    default: {
+      const hz = HAZ.find(x => x[0] === c.id);
+      const worst = HAZ.reduce((a, b) => r.cost[b[0]] > r.cost[a[0]] ? b : a)[0];
+      const v = st.hmode === 'pass' ? r.abl[c.id] : r.cost[c.id];
+      const txt = f1(v);
+      return `<td style="background:${mix(hz[3], r.cost[c.id] / 70)}" title="${esc(hz[1].slice(1))}: pass rate ${f1(r.abl[c.id])}%, cost ${f1(r.cost[c.id])}% of twin passes">${c.id === worst ? '<b>' + txt + '</b>' : txt}</td>`;
+    }
+  }
+}
+function headHTML() {
+  const grp = `<tr class="grp"><th colspan="4"></th><th colspan="6"><span>${st.hmode === 'pass' ? 'Pass rate (%)' : 'Pass rate (%), hazard columns as cost'}</span></th><th colspan="3"><span>Loss and recovery</span></th><th colspan="3"><span>False success (%)</span></th></tr>`;
+  const cols = COLS.map(c => {
+    const sort = st.sortKey === c.id ? ` aria-sort="${st.dir < 0 ? 'descending' : 'ascending'}"` : (st.sortKey == null && c.id === 'rank' ? ' aria-sort="ascending"' : '');
+    return `<th scope="col" class="${c.cls && c.cls.includes('l') ? 'l' : ''}${c.k ? ' k-' + c.k : ''}"${sort}><button type="button" data-sort="${c.id}">${c.k ? '<i></i>' : ''}${c.label}</button></th>`;
+  }).join('');
+  return `<thead>${grp}<tr>${cols}</tr></thead>`;
+}
+function ordered() {
+  const rows = [...R];
+  if (st.sortKey == null) return rows.sort((a, b) => RANK[st.rank][a.name] - RANK[st.rank][b.name]);
+  const c = COLS.find(x => x.id === st.sortKey);
+  return rows.sort((a, b) => {
+    const va = c.val(a), vb = c.val(b);
+    const d = c.text ? String(va).localeCompare(String(vb)) : va - vb;
+    return (d * st.dir) || RANK[st.rank][a.name] - RANK[st.rank][b.name];
+  });
+}
+function footHTML() {
+  const m = D.means;
+  const cells = COLS.map(c => {
+    if (c.id === 'model') return '<td class="l">Mean of 16</td>';
+    if (c.id === 'twin') return `<td>${f1(m.twin)}</td>`;
+    if (c.id === 'compound') return `<td>${f1(m.compound)}</td>`;
+    if (c.id === 'gap') return `<td>${f1(m.gap)}</td>`;
+    const hz = HAZ.find(x => x[0] === c.id);
+    if (hz) return `<td>${st.hmode === 'pass' ? f1(m.abl[c.id]) : f1(m.cost[c.id])}</td>`;
+    if (c.id === 'keeps') return `<td>${f0(m.keeps)}</td>`;
+    if (c.id === 'pass4') return `<td>${f1(m.pass4)}</td>`;
+    if (c.id === 'fs_twin') return `<td>${f0(m.fs_twin)}</td>`;
+    if (c.id === 'fs_comp') return `<td>${f0(m.fs_comp)}</td>`;
+    if (c.id === 'fs_rise') return `<td>${f0(m.fs_rise)}</td>`;
+    return '<td></td>';
+  }).join('');
+  return `<tfoot><tr>${cells}</tr></tfoot>`;
+}
+function render(animate) {
+  const tb = $('#lb');
+  tb.dataset.view = st.view;
+  const before = new Map($$('tbody tr', tb).map(tr => [tr.dataset.m, tr.getBoundingClientRect().top]));
+  tb.innerHTML = headHTML() + `<tbody>${ordered().map(r => `<tr data-m="${esc(r.name)}">${COLS.map(c => cellHTML(c, r)).join('')}</tr>`).join('')}</tbody>` + footHTML();
+  if (animate && !REDUCE && before.size) {
+    const rows = $$('tbody tr', tb);
+    rows.forEach(tr => {
+      const b = before.get(tr.dataset.m);
+      if (b == null) return;
+      const dy = b - tr.getBoundingClientRect().top;
+      if (!dy) return;
+      tr.style.transition = 'none';
+      tr.style.transform = `translateY(${dy}px)`;
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() => rows.forEach(tr => { tr.style.transition = ''; tr.style.transform = ''; })));
+  }
+}
+function wire() {
+  $('#rank').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    st.rank = b.dataset.v; st.sortKey = null; st.dir = -1;
+    $$('#rank button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render(true);
+  });
+  $('#hmode').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    st.hmode = b.dataset.v;
+    $$('#hmode button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render(false);
+  });
+  $('#pview').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    st.view = b.dataset.v;
+    if (st.view === 'pass' || st.view === 'cost') {
+      st.hmode = st.view;
+      $$('#hmode button').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.v === st.hmode)));
+    }
+    $$('#pview button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render(false);
+  });
+  $('#lb').addEventListener('click', e => {
+    const b = e.target.closest('button[data-sort]'); if (!b) return;
+    const id = b.dataset.sort;
+    if (id === 'rank') { st.sortKey = null; st.dir = -1; }
+    else if (st.sortKey === id) st.dir = -st.dir;
+    else { st.sortKey = id; st.dir = COLS.find(c => c.id === id).text ? 1 : -1; }
+    render(true);
+  });
+}
+wire();
+render(false);
+})();
+</script>
+<script src="mobile.js" defer></script>
+</body>
+</html>

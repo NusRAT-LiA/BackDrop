@@ -1,0 +1,3 @@
+[submodule "appworld"]
+	path = appworld
+	url = https://github.com/StonyBrookNLP/appworld.git

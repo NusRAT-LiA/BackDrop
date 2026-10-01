@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "appworld-extend"
+version = "1.0.0"
+description = "Compound hazard tasks with matched clean-world twins, built over AppWorld"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+# Both come from the ./appworld checkout below, which pins the exact commit the tasks were built against.
+# They carry litellm, cryptography and requests, which is everything else this needs.
+dependencies = ["appworld", "appworld-agents"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# litellm reaches bedrock through boto3 but does not depend on it, so `--model bedrock/...` needs this extra.
+bedrock = ["boto3>=1.34"]
+
+# `uv sync` resolves these two from the checkout instead of PyPI, so it builds the whole environment in one
+# command. Without uv, install the paths yourself first; see setup.sh.
+[tool.uv.sources]
+appworld = { path = "appworld", editable = true }
+appworld-agents = { path = "appworld/experiments", editable = true }
+
+# Listed rather than discovered: benchmark_ext/data/tasks/ holds 3,701 task directories, and letting
+# setuptools walk them turns each one into a candidate package.
+[tool.setuptools]
+packages = [
+    "benchmark_ext",
+    "benchmark_ext.monitors",
+    "benchmark_ext.oracles",
+    "benchmark_ext.generate",
+    "benchmark_ext.generate.tasks",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["benchmark_ext/tests"]
+markers = ["slow: builds an AppWorld world per task; the full scenario gate, hours not minutes"]

@@ -1,0 +1,16 @@
+{
+  "api_base": null,
+  "aws_region": "us-west-2",
+  "llm_retries": 5,
+  "llm_timeout_s": 600.0,
+  "max_output_length": null,
+  "max_steps": 70,
+  "max_tokens": 32768,
+  "model": "bedrock/us.anthropic.claude-fable-5-1",
+  "prompt_file": "appworld/experiments/prompts/react_code_agent/instructions.txt",
+  "prompt_sha1": "52dd55881eff",
+  "random_seed": 1,
+  "retry_budget_s": 3600.0,
+  "scaffold": "appworld_simplified_react_code_agent",
+  "temperature": null
+}

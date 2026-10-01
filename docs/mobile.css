@@ -1,0 +1,100 @@
+/* Phone layout (screens up to 640 px wide). Loaded after each page's own styles; desktop is unchanged. */
+.fighint,.dett{display:none}
+@media (max-width:640px){
+  /* Header: the name on its own row, all five links on the row below */
+  .bar-in{flex-wrap:wrap;gap:4px 0;min-height:0;padding-top:12px;padding-bottom:10px}
+  .mark{width:100%}
+  .nav{flex-wrap:wrap;gap:0;overflow:visible;margin-left:-7px}
+  .nav a{padding:6px 7px;font-size:13px}
+
+  /* Type, spacing, and blocks that stand apart */
+  h1{font-size:30px}
+  h2{font-size:23px}
+  .hero{padding-top:28px;padding-bottom:28px}
+  .eyebrow{letter-spacing:.04em}
+  .deck{font-size:16.5px}
+  .tldr p{font-size:17px}
+  .abs p{font-size:16px}
+  .sec{padding-top:30px}
+  .sec + .sec{margin-top:26px;border-top:1px solid var(--rule-2)}
+  .fsec{margin-top:26px}
+  .card,.hb,.lens-card,.board,.tbox,.item,.linkcard,.vcard,.hcard,.mapbox,.happen,.step{background:rgba(255,255,255,.82);border-color:var(--rule-2);box-shadow:0 1px 2px rgba(11,42,51,.06),0 6px 16px rgba(11,42,51,.06)}
+
+  /* Boxes wider than the screen scroll sideways, with a fade and a line that say so */
+  .is-scroll:not(.at-end){-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 40px),transparent)}
+  .swipe{margin:6px 0 0;font-size:12.5px;color:var(--ink-3)}
+  .fighint{display:block}
+
+  /* Two worlds: verdicts side by side, modes folded */
+  .vgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .vcard{padding:12px;gap:10px}
+  .vhead{flex-direction:column;align-items:flex-start;gap:2px}
+  .wsub{font-size:11.5px}
+  .stock{gap:2px 8px}
+  .stock .of{font-size:12.5px}
+  .strip{gap:2px;flex-wrap:wrap;margin-top:8px}
+  .strip i{width:12px;height:12px}
+  .vtog{cursor:pointer;align-items:center}
+  .vchev{display:inline-block;width:7px;height:7px;margin-left:auto;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:rotate(45deg)}
+  .vmodes.open .vchev{transform:rotate(-135deg)}
+  .vmodes:not(.open) .chips{display:none}
+  .vmodes:not(.open) .vtog{margin-bottom:0}
+  /* Two worlds: hazard cards open on tap */
+  .hgrid{gap:10px}
+  .hcard{position:relative;cursor:pointer}
+  .hcard header{padding-right:22px}
+  .hchev{display:block;position:absolute;right:16px;top:20px;width:8px;height:8px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:rotate(45deg)}
+  .hcard.open .hchev{transform:rotate(-135deg);top:24px}
+  .hcard:not(.open) > .bubble,.hcard:not(.open) > .resp,.hcard:not(.open) > .hdl{display:none}
+  /* Two worlds: the map drawn top to bottom */
+  .forksvg:not(.forkv){display:none}
+  .forkv{display:block;width:100%;min-width:0;height:auto}
+  .mapbox{padding:8px 4px}
+  /* Two worlds: failure chains and comparison rows read top to bottom */
+  .wrow{grid-template-columns:1fr;gap:6px}
+  .wrow .ar{display:block;width:14px;padding:0;margin-left:2px;line-height:1;transform:rotate(90deg)}
+  .srow{padding:12px 14px;gap:6px}
+  .srow .both,.srow [data-w]{display:block}
+  .srow [data-w]::before{display:block;min-width:0;margin:4px 0 2px}
+
+  /* Explorer: world tabs wrap, filters fit, and the task grid shows all six worlds */
+  .lens .seg,.pview .seg{display:flex;flex-wrap:wrap;gap:6px;border:0;background:none;overflow:visible}
+  .lens .seg button,.lens .seg button+button,.pview .seg button,.pview .seg button+button{border:1px solid var(--rule-2);border-radius:2px;background:var(--surface)}
+  .lens .seg button[aria-pressed="true"],.pview .seg button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+  .controls{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .field select,.field input{width:100%}
+  .board-in{min-width:0}
+  .ggrp,.ghead,.fhead{grid-template-columns:72px repeat(6,minmax(0,1fr)) 38px;gap:3px}
+  .ggrp{padding:8px 8px 0}
+  .ggrp span{font-size:11px}
+  .ghead{padding:6px 8px;font-size:10.5px;align-items:end}
+  .ghead span:not(:first-child){writing-mode:vertical-rl;transform:rotate(180deg);justify-content:flex-start;height:64px}
+  .fhead{padding:6px 8px}
+  .fid{flex-direction:column;align-items:flex-start;gap:0}
+  .fid code{font-size:11.5px}
+  .dif{font-size:8px}
+  .c{height:26px;font-size:11px}
+
+  /* Leaderboard: one group of columns at a time, chosen with the Show switch */
+  .tools > div:nth-child(2){display:none}
+  .pview{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  table.lb{min-width:0}
+  .lb thead tr.grp{display:none}
+  .lb th,.lb td{display:none;padding:7px 3px;font-size:11px}
+  .lb tr > :nth-child(1),.lb tr > :nth-child(3),
+  .lb[data-view="pass"] tr > :nth-child(n+5):nth-child(-n+10),
+  .lb[data-view="cost"] tr > :nth-child(n+6):nth-child(-n+9),
+  .lb[data-view="loss"] tr > :nth-child(n+11):nth-child(-n+13),
+  .lb[data-view="fs"] tr > :nth-child(n+14){display:table-cell}
+  .lb td.model{font-size:12px;white-space:normal;line-height:1.25}
+  .lb td.model .n{gap:4px}
+  .lb td.model .dot{width:7px;height:7px}
+  .lb[data-view="pass"] thead th:not(:nth-child(1)):not(:nth-child(3)) button,
+  .lb[data-view="cost"] thead th:not(:nth-child(1)):not(:nth-child(3)) button{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+
+  /* Findings: the modes table fits, and each figure's captions fold under Details */
+  .heat th,.heat td{padding:5px 4px;font-size:11px}
+  .heat thead th:not(.l){writing-mode:vertical-rl;transform:rotate(180deg);height:64px;text-align:left}
+  .item:not(.det) .fold{display:none}
+  .dett{display:inline-block;margin:10px 0 0}
+}
